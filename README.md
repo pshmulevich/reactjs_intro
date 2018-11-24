@@ -145,11 +145,8 @@ ReactDOM.render(
 
 Here is how to combine them all into one single working project:
 1) On your computer, create a file structure like so:
-    <folder>
-     |
-     +--<CSS folder>
-     |
-     +-- index.html
+    -create your project folder
+    -create a css subfolder and a text document and rename it to index.html
 
 1) Copy and paste your HTML code into the newly created index.html file. Save. 
 2) Go into your HTML file. Locate the top of the scripts in the head tags. Add your CSS file like this:
