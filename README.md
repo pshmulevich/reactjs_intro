@@ -42,3 +42,51 @@ ReactDOM.render(
 
 More resources: 
 [Here is a good cheat sheet for React to use](https://devhints.io/react) 
+
+
+## React.js how to convert Date into human-readable format
+
+Date works in a strange way.
+A command like,
+
+``` Date() ```
+
+renders a long string like "Wed Nov 21 2018 16:16:59 GMT.... "
+
+How to save the date:
+``` date = newDate().getTime() ```
+This will render a long number like "1542846323960" which is actually the number of milliseconds between midnight of January 1, 1970 and the moment the line was executed just now. 
+
+This is fine if you are just rendering it on a page. But if you are saving the state in local storage, then repopulating the page and need the date at that time, you will find an error because while React can load date, loading it back from local storage will be an issue.
+
+Here is a concise way to render the time from the command:
+```
+import React from 'react';
+
+class CurrentDate extends React.Component {
+    constructor() {
+        super();
+
+        let date = new Date().getTime();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let displayTime = hours + ":" + minutes + ":" + seconds; //making it in the format of HH:MM:SS
+        return displayTime;
+
+        this.state = {date: date};  //saving the state
+    }
+
+    render() {
+        return (
+            <div className='date'>
+                {this.state.date}
+            </div>
+        );
+    }
+}
+
+
+```
+
+
